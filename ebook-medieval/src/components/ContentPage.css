@@ -93,23 +93,26 @@
   color: #c9a227;
 }
 
-/* Chapter illustration */
+/* Chapter illustration - RESPONSIVE */
 .chapter-illustration {
-  width: 100%;
-  max-width: 200px;
+  width: 90%;
+  max-width: clamp(150px, 40vw, 280px);
   height: auto;
-  max-height: 180px;
+  min-height: 120px;
+  max-height: clamp(150px, 35vh, 300px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 0;
-  flex-shrink: 0;
+  margin: clamp(10px, 3vh, 25px) auto;
+  flex: 1;
+  padding: 10px;
 }
 
 .chapter-illustration svg {
   width: 100%;
-  height: auto;
-  max-height: 180px;
+  height: 100%;
+  max-height: clamp(150px, 35vh, 280px);
+  object-fit: contain;
 }
 
 /* Chapter quote */
@@ -484,6 +487,30 @@
 /* RESPONSIVE STYLES                             */
 /* ============================================= */
 
+/* Tablets */
+@media (max-width: 1024px) {
+  .page-border {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .left-page-content {
+    padding: 15px;
+  }
+
+  .chapter-illustration {
+    max-width: clamp(120px, 35vw, 220px);
+    max-height: clamp(120px, 30vh, 220px);
+  }
+
+  .content-text {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+  }
+}
+
+/* Mobile landscape & small tablets */
 @media (max-width: 768px) {
   .page-border {
     top: 8px;
@@ -493,51 +520,221 @@
   }
 
   .left-page-content {
-    padding: 15px;
-  }
-
-  .chapter-title {
-    font-size: 1.2rem;
-  }
-
-  .chapter-illustration {
-    max-width: 150px;
-    max-height: 140px;
-  }
-
-  .right-page-content {
-    padding: 12px 15px;
-  }
-
-  .content-text {
-    font-size: 0.95rem;
-  }
-
-  .section-title {
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .left-page-content {
     padding: 12px;
   }
 
+  .chapter-header {
+    margin-bottom: 10px;
+  }
+
   .chapter-number {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
   }
 
   .chapter-title {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .chapter-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .title-divider {
+    width: 120px;
+    margin: 8px auto 0;
   }
 
   .chapter-illustration {
-    max-width: 120px;
-    max-height: 120px;
+    max-width: clamp(100px, 45vw, 180px);
+    max-height: clamp(100px, 28vh, 180px);
+    margin: 10px auto;
+  }
+
+  .chapter-quote {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .right-page-content {
+    padding: 10px 12px;
   }
 
   .content-text {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
     line-height: 1.5;
+  }
+
+  .content-text:first-child::first-letter {
+    font-size: 2em;
+  }
+
+  .section-title {
+    font-size: 0.8rem;
+  }
+
+  .competency-item,
+  .resource-item,
+  .tool-item {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .item-title {
+    font-size: 0.8rem;
+  }
+
+  .item-desc {
+    font-size: 0.8rem;
+  }
+
+  .rule-item {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .rule-number {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+
+  .rule-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .page-border {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border-width: 1px;
+  }
+
+  .left-page-content {
+    padding: 10px;
+  }
+
+  .chapter-number {
+    font-size: 0.65rem;
+  }
+
+  .chapter-title {
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
+  }
+
+  .chapter-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .title-divider {
+    width: 100px;
+  }
+
+  .chapter-illustration {
+    max-width: clamp(80px, 50vw, 150px);
+    max-height: clamp(80px, 25vh, 150px);
+    min-height: 80px;
+  }
+
+  .chapter-quote {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .highlight-box {
+    padding: 8px 10px;
+  }
+
+  .highlight-text {
+    font-size: 0.8rem;
+  }
+
+  .right-page-content {
+    padding: 8px 10px;
+  }
+
+  .chapter-ref {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+
+  .chapter-ref span {
+    font-size: 0.65rem;
+  }
+
+  .content-text {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .points-list li {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .final-words-section {
+    padding: 10px;
+  }
+
+  .final-text {
+    font-size: 0.85rem;
+  }
+
+  .page-number {
+    font-size: 0.7rem;
+    bottom: 5px;
+  }
+
+  .decorative-corner {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .left-page-content,
+  .right-page-content {
+    padding: 8px;
+  }
+
+  .chapter-title {
+    font-size: 0.9rem;
+  }
+
+  .chapter-illustration {
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 70px;
+  }
+
+  .content-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .chapter-illustration {
+    max-height: 25vh;
+    min-height: 60px;
+  }
+
+  .chapter-header {
+    margin-bottom: 5px;
+  }
+
+  .title-divider {
+    margin: 5px auto 0;
+  }
+
+  .chapter-quote {
+    margin: 5px 0;
+    padding: 8px 12px;
   }
 }

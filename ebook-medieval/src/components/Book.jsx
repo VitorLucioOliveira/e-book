@@ -31,23 +31,57 @@ const Book = () => {
     const handleResize = () => {
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
-      const mobile = viewportWidth < 900;
+      const isLandscape = viewportWidth > viewportHeight;
+      
+      // Breakpoints
+      const isSmallMobile = viewportWidth < 400;
+      const isMobilePortrait = viewportWidth < 600;
+      const isMobileLandscape = viewportWidth < 900 && isLandscape;
+      const isTablet = viewportWidth < 1024;
+      const mobile = viewportWidth < 768 || (viewportWidth < 900 && isLandscape);
       
       setIsMobile(mobile);
       
-      if (mobile) {
-        // Mobile: single page view
-        const w = Math.min(viewportWidth - 40, 450);
-        const h = Math.min(viewportHeight - 180, w * 1.4);
-        setDimensions({ width: w, height: h });
+      if (isSmallMobile) {
+        // Very small screens
+        const w = viewportWidth - 20;
+        const h = Math.min(viewportHeight - 140, w * 1.4);
+        setDimensions({ width: Math.round(w), height: Math.round(h) });
+      } else if (isMobilePortrait) {
+        // Mobile portrait
+        const w = Math.min(viewportWidth - 30, 380);
+        const h = Math.min(viewportHeight - 160, w * 1.4);
+        setDimensions({ width: Math.round(w), height: Math.round(h) });
+      } else if (isMobileLandscape) {
+        // Mobile/tablet landscape - single page but bigger
+        const h = viewportHeight - 120;
+        const w = Math.min(h * 0.72, viewportWidth - 60);
+        setDimensions({ width: Math.round(w), height: Math.round(h) });
+      } else if (isTablet) {
+        // Tablet - two pages
+        const availableWidth = viewportWidth - 60;
+        const availableHeight = viewportHeight - 180;
+        const pageRatio = 0.72;
+        let pageHeight = Math.min(availableHeight, 700);
+        let pageWidth = pageHeight * pageRatio;
+        
+        if (pageWidth * 2 > availableWidth) {
+          pageWidth = availableWidth / 2;
+          pageHeight = pageWidth / pageRatio;
+        }
+        
+        setDimensions({ 
+          width: Math.round(pageWidth), 
+          height: Math.round(pageHeight) 
+        });
       } else {
         // Desktop: two pages side by side - each page width
         const availableWidth = viewportWidth - 100;
-        const availableHeight = viewportHeight - 200;
+        const availableHeight = viewportHeight - 180;
         
         // Each page should be this size (book shows 2 pages)
-        const pageRatio = 0.75; // width/height ratio for each page
-        let pageHeight = Math.min(availableHeight, 800);
+        const pageRatio = 0.72; // width/height ratio for each page
+        let pageHeight = Math.min(availableHeight, 850);
         let pageWidth = pageHeight * pageRatio;
         
         // Make sure two pages fit horizontally

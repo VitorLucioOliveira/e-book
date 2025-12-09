@@ -252,7 +252,33 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .corner-ornament {
+    width: 60px;
+    height: 60px;
+  }
+
+  .corner-ornament::before {
+    width: 55px;
+    height: 55px;
+  }
+
+  .top-ornament {
+    width: 150px;
+    height: 40px;
+  }
+
+  .center-emblem {
+    width: clamp(70px, 18vw, 110px);
+    height: clamp(70px, 18vw, 110px);
+  }
+}
+
 @media (max-width: 768px) {
+  .cover-container {
+    padding: 15px;
+  }
+
   .corner-ornament {
     width: 50px;
     height: 50px;
@@ -271,9 +297,140 @@
   .title-frame-inner {
     padding: 10px 15px;
   }
+
+  .center-emblem {
+    width: clamp(60px, 20vw, 100px);
+    height: clamp(60px, 20vw, 100px);
+  }
   
   .bottom-ornament {
     width: 100px;
     height: 25px;
+  }
+
+  .spine-decoration {
+    width: 10px;
+  }
+
+  .cover-instruction {
+    font-size: 0.65rem;
+    bottom: 10px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-container {
+    padding: 12px;
+  }
+
+  .corner-ornament {
+    width: 35px;
+    height: 35px;
+  }
+
+  .corner-ornament::before {
+    width: 30px;
+    height: 30px;
+  }
+
+  .top-ornament {
+    width: 90px;
+    height: 28px;
+  }
+
+  .title-frame {
+    border-width: 2px;
+    padding: 3px;
+  }
+
+  .title-frame-inner {
+    padding: 8px 12px;
+  }
+
+  .center-emblem {
+    width: clamp(50px, 22vw, 80px);
+    height: clamp(50px, 22vw, 80px);
+    margin: 8px 0;
+  }
+
+  .author-section {
+    gap: 3px;
+    margin-top: 8px;
+  }
+
+  .divider-line {
+    width: 30px;
+  }
+
+  .bottom-ornament {
+    width: 80px;
+    height: 20px;
+    margin-top: 8px;
+  }
+
+  .cover-instruction {
+    font-size: 0.6rem;
+    bottom: 8px;
+    right: 10px;
+  }
+
+  .spine-decoration {
+    width: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .corner-ornament {
+    width: 28px;
+    height: 28px;
+  }
+
+  .corner-ornament::before {
+    width: 24px;
+    height: 24px;
+  }
+
+  .top-ornament {
+    width: 70px;
+    height: 22px;
+  }
+
+  .center-emblem {
+    width: 50px;
+    height: 50px;
+  }
+
+  .bottom-ornament {
+    width: 60px;
+    height: 18px;
+  }
+}
+
+/* Landscape adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .cover-content {
+    gap: 8px;
+  }
+
+  .top-ornament {
+    width: 100px;
+    height: 25px;
+  }
+
+  .center-emblem {
+    width: 60px;
+    height: 60px;
+    margin: 5px 0;
+  }
+
+  .author-section {
+    margin-top: 5px;
+  }
+
+  .bottom-ornament {
+    width: 80px;
+    height: 18px;
+    margin-top: 5px;
   }
 }
