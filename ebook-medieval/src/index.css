@@ -1,0 +1,98 @@
+:root {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f5e6d3;
+  background-color: #1a1a2e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Medieval color palette */
+  --gold: #c9a227;
+  --gold-light: #f4d03f;
+  --parchment: #f5e6d3;
+  --parchment-dark: #e8d5b7;
+  --leather-dark: #2d1810;
+  --leather: #4a2c17;
+  --ink: #3d2914;
+  --rust: #8b4513;
+  --crimson: #8b0000;
+  --navy: #1a1a2e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(201, 162, 39, 0.3);
+  color: #f4d03f;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a227 0%, #8b4513 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f4d03f 0%, #c9a227 100%);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #c9a227;
+  outline-offset: 2px;
+}
+
+/* Button reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Link styles */
+a {
+  color: #c9a227;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f4d03f;
+}
