@@ -101,7 +101,7 @@ const Book = () => {
   // Generate all content pages
   const renderContentPages = () => {
     const pages = [];
-    let pageNum = 3;
+    let pageNum = 4; // Começa em 4: capa(1), interior capa(2), índice(3), conteúdo(4+)
     
     bookContent.chapters.forEach((chapter, chapterIndex) => {
       // Left page: Title, illustration
@@ -168,7 +168,7 @@ const Book = () => {
           showPageCorners={true}
           disableFlipByClick={false}
         >
-          {/* Cover */}
+          {/* Cover - página única centralizada */}
           <Page key="cover" className="cover-page" density="hard">
             <CoverPage 
               title={bookContent.title} 
@@ -177,11 +177,20 @@ const Book = () => {
             />
           </Page>
 
+          {/* Página interna da capa (em branco decorativa) */}
+          <Page key="cover-inside" className="toc-page">
+            <div className="inside-cover">
+              <div className="inside-cover-ornament">✦</div>
+              <p className="inside-cover-text">AI Survival Kit for Professionals</p>
+              <div className="inside-cover-ornament">✦</div>
+            </div>
+          </Page>
+
           {/* Table of Contents */}
           <Page key="toc" className="toc-page">
             <TableOfContents 
               chapters={bookContent.chapters} 
-              onChapterClick={(index) => goToPage(index * 2 + 2)}
+              onChapterClick={(index) => goToPage(index * 2 + 3)}
             />
           </Page>
 
